@@ -1,0 +1,30 @@
+.task-card {
+  text-align: left;
+  .ant-card-head {
+    padding: 12px !important;
+    .ant-card-extra {
+      align-self: flex-start;
+    }
+  }
+  .ant-card-body {
+    small > span {
+      color: $gray-600;
+    }
+  }
+  &.--expired {
+    border-color: $danger;
+  }
+  &__title {
+    @include font-size(16, 16, 500);
+    margin-bottom: 10px;
+  }
+  &__description {
+    @include font-size(14, 24, 400);
+    color: $gray-700;
+    text-wrap: wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}

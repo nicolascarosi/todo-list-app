@@ -1,0 +1,14 @@
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__text {
+    &__title {
+      @include font-size(32, 32, 500);
+      margin-bottom: 10px;
+    }
+    &__subtitle {
+      color: $gray-800;
+    }
+  }
+}

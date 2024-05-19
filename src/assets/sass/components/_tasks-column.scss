@@ -1,0 +1,10 @@
+.tasks-column {
+  &__title {
+    @include font-size(18, 20, 700);
+    color: $gray-800;
+    margin-bottom: 20px;
+  }
+  &__container {
+    max-width: 550px;
+  }
+}

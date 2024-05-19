@@ -1,0 +1,28 @@
+.sidebar {
+  padding: 20px;
+  width: 100%;
+  max-width: 340px;
+  min-height: 100dvh;
+  border-right: 1px solid $gray-100;
+  background-color: $white;
+  &__header {
+    padding-bottom: 20px;
+    &:not(:first-child) {
+      padding-top: 20px;
+    }
+    &__title {
+      margin-bottom: 15px;
+      @include font-size(18, 18, 500);
+    }
+  }
+}
+
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  button {
+    box-shadow: none;
+    text-align: left;
+  }
+}

@@ -1,0 +1,15 @@
+.filters {
+  .ant-select {
+    min-width: 260px;
+  }
+}
+
+.tasks-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 50px;
+  margin-top: 36px;
+  @include device-sm {
+    grid-template-columns: 1fr;
+  }
+}
