@@ -1,20 +1,14 @@
-'use client';
-
 import { ROUTES, TOKEN_KEY } from '@/config';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem(TOKEN_KEY);
-    if (isLoggedIn) router.push(ROUTES.HOME);
-  }, []);
+  const isLoggedIn = cookies().get(TOKEN_KEY)?.value;
+  if (isLoggedIn) redirect(ROUTES.HOME);
 
   return <main className="public-content">{children}</main>;
 }

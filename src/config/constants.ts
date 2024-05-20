@@ -34,4 +34,4 @@ export const TASK_CATEGORIES_OPTIONS = [
   },
 ];
 
-export const TOKEN_KEY = 'TOKEN';
+export const TOKEN_KEY = 'accessToken';

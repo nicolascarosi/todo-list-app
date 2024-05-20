@@ -1,12 +1,12 @@
 'use client';
 
-import { ROUTES, TOKEN_KEY } from '@/config';
-import { loginService } from '@/services';
+import { ROUTES } from '@/config';
 import { useUserStore } from '@/store';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message } from 'antd';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { login } from '../../actions';
 import { ILoginValues } from './LoginForm.interface';
 
 export const LoginForm = () => {
@@ -18,8 +18,7 @@ export const LoginForm = () => {
   const handleOnSubmit = async (values: ILoginValues) => {
     try {
       setLoading(true);
-      const response = await loginService.login(values);
-      localStorage.setItem(TOKEN_KEY, JSON.stringify(response[0].accessToken));
+      const response = await login(values);
       updateUser(response[0].user);
       router.push(ROUTES.HOME);
     } catch (error) {

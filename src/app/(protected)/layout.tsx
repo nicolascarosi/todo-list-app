@@ -1,21 +1,15 @@
-'use client';
-
 import { ROUTES, TOKEN_KEY } from '@/config';
 import { Sidebar } from '@/layout';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const isLoggedIn = localStorage.getItem(TOKEN_KEY);
-    if (!isLoggedIn) router.push(ROUTES.LOGIN);
-  }, []);
+  const isLoggedIn = cookies().get(TOKEN_KEY)?.value;
+  if (!isLoggedIn) redirect(ROUTES.LOGIN);
 
   return (
     <>

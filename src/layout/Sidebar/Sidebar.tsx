@@ -2,7 +2,8 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 
-import { ROUTES, TOKEN_KEY } from '@/config';
+import { logout } from '@/app/(public)/login/actions';
+import { ROUTES } from '@/config';
 import { useUserStore } from '@/store';
 import { AppstoreOutlined, HomeOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
@@ -39,7 +40,7 @@ export const Sidebar = () => {
   const { removeUser } = useUserStore();
 
   const handleLogout = () => {
-    localStorage.removeItem(TOKEN_KEY);
+    logout();
     removeUser();
     router.push(ROUTES.LOGIN);
   };

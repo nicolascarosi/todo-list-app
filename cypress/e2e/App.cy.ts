@@ -4,7 +4,7 @@ describe('create task', () => {
   const taskNumber = Math.floor(Math.random() * 100);
 
   before(() => {
-    cy.clearLocalStorage();
+    cy.clearAllCookies();
     cy.visit('/login');
   });
 
@@ -19,7 +19,7 @@ describe('create task', () => {
 
   it('successfully log in and navigate to next page', () => {
     cy.url().should('contain', '/');
-    cy.get('.home-page').should('exist');
+    cy.wait(500).get('.home-page').should('exist');
   });
 
   it('navigate to "Tasks" page', () => {
