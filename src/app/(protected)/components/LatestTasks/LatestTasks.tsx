@@ -19,5 +19,5 @@ export const LatestTasks = ({ items }: ILatestTasks) => {
     setFilteredItems(newItems.slice(0, TASKS_TO_SHOW));
   }, []);
 
-  return <TasksColumn title="Latest tasks" items={filteredItems} />;
+  return <TasksColumn title="Tasks next to due" items={filteredItems} />;
 };

@@ -1,0 +1,12 @@
+.user-avatar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid $gray-100;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  &__name {
+    @include font-size(18, 20, 700);
+  }
+}

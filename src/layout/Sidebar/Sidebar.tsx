@@ -7,6 +7,7 @@ import { useUserStore } from '@/store';
 import { AppstoreOutlined, HomeOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import Link from 'next/link';
+import { UserAvatar } from '../UserAvatar';
 import { ISidebarItemsComponent, ISidebarMenuItems } from './Sidebar.interface';
 
 const menuItems: ISidebarMenuItems[] = [
@@ -44,19 +45,22 @@ export const Sidebar = () => {
   };
 
   return (
-    <nav className="sidebar">
-      {menuItems.map((item, index) => (
-        <div key={index} className="sidebar__header">
-          <h2 className="sidebar__header__title">{item.title}</h2>
-          {item.items ? (
-            <SidebarItems items={item.items} pathname={pathname} />
-          ) : null}
-        </div>
-      ))}
-      <Button type="link" onClick={handleLogout}>
-        Log out
-      </Button>
-    </nav>
+    <div className="sidebar">
+      <UserAvatar />
+      <nav>
+        {menuItems.map((item, index) => (
+          <div key={index} className="sidebar__header">
+            <h2 className="sidebar__header__title">{item.title}</h2>
+            {item.items ? (
+              <SidebarItems items={item.items} pathname={pathname} />
+            ) : null}
+          </div>
+        ))}
+        <Button type="link" onClick={handleLogout}>
+          Log out
+        </Button>
+      </nav>
+    </div>
   );
 };
 
